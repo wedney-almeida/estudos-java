@@ -11,15 +11,14 @@ public class task3 {
 		int A = sc.nextInt();
 		int B = sc.nextInt();
 		
-		int multiplo = A % B; 
+		int multiplo1 = A % B;
+		int multiplo2 = B % A;
 		
-		if(multiplo == 0) {
+		if(multiplo1 == 0 || multiplo2 == 0) {
 			System.out.println("São Multiplos");
 		} else {
 			System.out.println("Não são Multiplos");
 		}
-		
-		
 		
 		sc.close();
 	}
