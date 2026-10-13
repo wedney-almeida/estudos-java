@@ -12,21 +12,15 @@ public class Aplication_Retangulo {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Retangulo largura, altura;
-		largura = new Retangulo();
-		altura = new Retangulo();
+		Retangulo ret = new Retangulo();
 		
 		System.out.println("INFORME A ALTURA E A LARGURA: ");
-		largura.largura = sc.nextDouble();
-		altura.altura = sc.nextDouble();
+		ret.largura = sc.nextDouble();
+		ret.altura = sc.nextDouble();
 		
-		double area = altura.altura * largura.largura;
-		double perimetro = altura.altura + altura.altura + largura.largura + largura.largura;
-		double diagonal = Math.sqrt(Math.pow(altura.altura, 2) + Math.pow(largura.largura, 2));
-		
-		System.out.printf("AREA: %.2f%n", area);
-		System.out.printf("PERIMETRO: %.2f%n", perimetro);
-		System.out.printf("DIAGONAL: %.2f%n", diagonal);
+		System.out.printf("AREA: %.2f%n", ret.area());
+		System.out.printf("PERIMETRO: %.2f%n", ret.perimetro());
+		System.out.printf("DIAGONAL: %.2f%n", ret.diagonal());
 		
 		sc.close();
 		
