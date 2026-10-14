@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import entities.Retangulo;
 
-public class Aplication_Retangulo {
+public class AplicationRetangulo {
 
 	public static void main(String[] args) {
 		

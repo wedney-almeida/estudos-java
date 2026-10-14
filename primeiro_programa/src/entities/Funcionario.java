@@ -5,25 +5,21 @@ public class Funcionario {
 	public String nome;
 	public double salario;
 	public double desconto;
-	public double acrescimo;
 	
 	
-	public double descontoSlario() {
+	public double descontoSalario() {
 		double calcD = salario - desconto;
 		return calcD;
 	}
 	
-	public double aumentoDeSalario() {
-		double aumento = salario * acrescimo;
-		return aumento;
+	public void aumentoDeSalario(double acrescimo) {
+		salario = salario + salario * acrescimo / 100;
+
 	}
-/*Falta ajustar a formatação como "%.2f%n para retornar com duas casas decimais somente" */	
-	public String formato() {
-		String formatacao = 
-				"FUNCIONARIO: " +
-				nome + 
-				", $ " 
-				+ salario;
-		return formatacao;
+
+	public String toString() {
+		return "FUNCIONARIO: " 
+				+ nome + ", $ "
+				+ String.format("%.2f", descontoSalario());
 	}
 }

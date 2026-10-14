@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import entities.Funcionario;
 
-public class Aplication_Funcionario {
+public class AplicationFuncionario {
 	
 	public static void main(String[] args) {
 		
@@ -19,10 +19,12 @@ public class Aplication_Funcionario {
 		fun.salario = sc.nextDouble();
 		fun.desconto = sc.nextDouble();
 		
-		System.out.println(fun.formato());
+		System.out.println(fun.toString());
 		System.out.println("INFORME O VALOR DO AUMENTO: ");
-		fun.acrescimo = sc.nextDouble();
-		
+		double aumento = sc.nextDouble();
+		fun.aumentoDeSalario(aumento);
+		System.out.println("DADOS DO FUNCIONARIO ATUALIZADO: ");
+		System.out.println(fun.toString());
 		
 		
 		sc.close();
