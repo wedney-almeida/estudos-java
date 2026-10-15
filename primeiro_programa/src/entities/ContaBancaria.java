@@ -10,7 +10,7 @@ public class ContaBancaria {
 		super();
 		this.numeroDaConta = numeroDaConta;
 		this.titularDaConta = titularDaConta;
-		this.depositar(valorDeDeposito);
+		depositar(valorDeDeposito);
 	}
 	
 	public ContaBancaria(int numeroDaConta, String titularDaConta) {
@@ -40,5 +40,13 @@ public class ContaBancaria {
 	
 	public void sacar(double valor) {
 		saldo -= valor + 5.0;
+	}
+	
+	public String toString() {
+		return "Conta: " + numeroDaConta 
+				+ ", Titular: " 
+				+ titularDaConta
+				+ ", Saldo: " 
+				+ String.format("%.2f", saldo);
 	}
 }

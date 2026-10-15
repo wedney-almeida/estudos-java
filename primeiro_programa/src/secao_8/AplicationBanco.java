@@ -17,23 +17,28 @@ public class AplicationBanco {
 		System.out.println("**INFORME OS DADOS DA CONTA**");
 		System.out.println("NUMERO DA CONTA:");
 		int numConta = sc.nextInt();
+		sc.nextLine();
+		
 		System.out.println("TITULAR DA CONTA:");
 		String titular = sc.nextLine();
-		System.out.println("HAVERA DEPOSITO? ");
 		
-		String depositoInicial;
+		System.out.println("HAVERA DEPOSITO (s/n)?");
+		char resposta = sc.next().charAt(0);
+		
+		double depositoInicial;
 		ContaBancaria conta;
 		
-		if(depositoInicial == "s") {
+		if(resposta == 's') {
 			System.out.println("INSIRA O VALOR A SER DEPOSITADO:");
-			depositoInicial = sc.nextLine();
-			conta = new ContaBancaria(numConta, titular, depositar);
+			depositoInicial = sc.nextDouble();
+			conta = new ContaBancaria(numConta, titular, depositoInicial);
 		}
 		else {
 			conta = new ContaBancaria(numConta, titular);
 		}
 		
-		conta = new ContaBancaria(numConta, titular, depositar);
+		System.out.println("DADOS DA CONTA:");
+		System.out.println(conta);
 		
 		sc.close();
 	}
