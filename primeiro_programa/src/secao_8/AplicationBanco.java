@@ -40,6 +40,18 @@ public class AplicationBanco {
 		System.out.println("DADOS DA CONTA:");
 		System.out.println(conta);
 		
+		System.out.println("INFORME O VALOR DE DEPOSITO:");
+		double valorDeposito = sc.nextDouble();
+		conta.depositar(valorDeposito);
+		System.out.println("DADOS ATUALIZADOS:");
+		System.out.println(conta);
+		
+		System.out.println("INFORME O VALOR DE SAQUE:");
+		double valorSaque = sc.nextDouble();
+		conta.sacar(valorSaque);
+		System.out.println("DADOS ATUALIZADOS:");
+		System.out.println(conta);
+		
 		sc.close();
 	}
 }
