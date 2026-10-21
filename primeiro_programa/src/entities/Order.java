@@ -1,5 +1,6 @@
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,15 +11,20 @@ public class Order {
 	
 	private Date moment;
 	private OrderStatus status;
+	private Client client;
 	
-	private List<Product> product = new ArrayList<>(); 
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
+	private List<OrderItem> items = new ArrayList<>(); 
 	
 	public Order() {
 	}
 
-	public Order(Date moment) {
+	public Order(Date moment, OrderStatus status, Client client) {
 		super();
 		this.moment = moment;
+		this.status = status;
+		this.client = client;
 	}
 
 	public Date getMoment() {
@@ -37,12 +43,47 @@ public class Order {
 		this.status = status;
 	}
 	
-	public void addItem(Product product) {
-		product.getName();
-		product.getPrice();
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public void addItem(OrderItem item) {
+		items.add(item);
 	}
 	
-	public void removeItem(Product prod) {
+	public void removeItem(OrderItem item) {
+		items.remove(item);
+	}
+	
+	public double total() {
+		double sum = 0.0;
+		for(OrderItem item : items) {
+			sum += item.subTotal();
+		}
+		return sum;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Order moment: ");
+		sb.append(sdf.format(moment) + "\n");
+		sb.append("Orderstatus: ");
+		sb.append(status + "\n");
+		sb.append("Client: ");
+		sb.append(client + "\n");
 		
+		sb.append("Order items:\n");
+		for(OrderItem item : items) {
+			sb.append(item + "\n");
+		}
+		sb.append("Total price: $");
+		sb.append(String.format("%.2f", total()));
+		
+		return sb.toString();
 	}
 }	
