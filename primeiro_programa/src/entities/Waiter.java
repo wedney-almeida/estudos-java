@@ -24,4 +24,9 @@ public class Waiter {
 	public Integer getRegistration() {
 		return registration;
 	}
+	
+	@Override
+	public String toString() {
+		return name + " (" + registration + ")";
+	}
 }

@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import entities.Comanda;
 import entities.ComandaItem;
+import entities.Dish;
 import entities.Waiter;
 import entities.enums.ComandaStatus;
 
@@ -33,24 +34,29 @@ public class ProgramWaiter {
 		
 		Comanda comanda = new Comanda(numberTable, new Date(), status, waiter);
 		
-		System.out.println("How many items? ");
+		System.out.print("How many items? ");
 		int n = sc.nextInt();
 		sc.nextLine();
 		
 		for(int i = 1; i <= n; i++) {
-			System.out.println("Enter #" + i + "item data:");
+			System.out.println("Enter #" + i + " item data:");
 			System.out.print("Dish name: ");
 			String dishName = sc.nextLine();
 			System.out.print("Dish price: ");
 			double dishPrice = sc.nextDouble();
 			sc.nextLine();
-			System.out.println("Quantity: ");
+			System.out.print("Quantity: ");
 			int dishQuantity = sc.nextInt();
 			sc.nextLine();
 			
-			ComandaItem items = new ComandaItem(dishName, dishPrice, dishQuantity);
-			comanda.addItem(items);
+			Dish dish = new Dish(dishName, dishPrice);
+			ComandaItem item = new ComandaItem(dishQuantity, dish);
+			comanda.addItem(item);
 		}
+		
+		System.out.println();
+		System.out.println("COMANDA SUMMARY:");
+		System.out.println(comanda);
 		
 		sc.close();
 	}

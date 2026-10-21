@@ -33,4 +33,14 @@ public class ComandaItem {
 	public double subTotal() {
 		return quantity * dish.getPrice();
 	}
+	
+	@Override
+	public String toString() {
+		return dish.getName() 
+				+ ", $" 
+				+ String.format("%.2f", dish.getPrice()) 
+				+ ", Quantity: " 
+				+ quantity 
+				+ ", Subtotal: $" + String.format("%.2f", subTotal());
+	}
 }
