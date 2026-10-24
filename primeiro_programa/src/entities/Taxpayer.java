@@ -31,4 +31,5 @@ public abstract class Taxpayer {
 		this.annualIcomme = annualIcomme;
 	}
 	
+	public abstract double tax();
 }

@@ -20,5 +20,17 @@ public class LegalEntity extends Taxpayer {
 	public void setNumberOfEmployees(Integer numberOfEmployees) {
 		this.numberOfEmployees = numberOfEmployees;
 	}
+
+	@Override
+	public double tax() {
+		if(getNumberOfEmployees() > 10) {
+			return getAnualIcomme() * 0.14;
+		}
+		else {
+			return getAnualIcomme() * 0.16;
+		}
+	}
+	
+
 	
 }
