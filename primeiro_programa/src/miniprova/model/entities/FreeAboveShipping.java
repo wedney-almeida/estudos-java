@@ -36,13 +36,12 @@ public class FreeAboveShipping implements Shipping {
 
 	@Override
 	public double cost(double purchaseValue) {
+		
 		if(purchaseValue >= getMinimumValue()) {
-			taxRate = 0.0;
+			return 0.0;
 		}
 		else {
-			taxRate += taxRate;
+			return getTaxRate();
 		}
-		return purchaseValue;
 	}
-
 }
